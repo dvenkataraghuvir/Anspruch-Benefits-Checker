@@ -4,6 +4,7 @@ pydantic>=2
 pydantic-settings>=2
 pyyaml>=6
 httpx>=0.27
+azure-monitor-opentelemetry>=1.6
 pytest>=8
 # local monorepo packages (install editable):
 #   pip install -e ../../packages/core -e ../../packages/rules_engine

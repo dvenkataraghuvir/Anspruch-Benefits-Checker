@@ -9,6 +9,16 @@ def create_app() -> FastAPI:
     settings = get_settings()
     app = FastAPI(title="Anspruch API", version="0.1.0")
 
+    if settings.applicationinsights_connection_string:
+        from azure.monitor.opentelemetry import configure_azure_monitor
+        from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
+
+        configure_azure_monitor(
+            connection_string=settings.applicationinsights_connection_string
+        )
+        # Explicit, because FastAPI was imported before auto-instrumentation ran.
+        FastAPIInstrumentor.instrument_app(app, excluded_urls="healthz")
+
     app.add_middleware(
         CORSMiddleware,
         allow_origins=settings.cors_allow_origins,  # strict allowlist, never "*"
