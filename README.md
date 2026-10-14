@@ -1,5 +1,7 @@
 # Anspruch
 
+[![CI](https://github.com/dvenkataraghuvir/Anspruch-Benefits-Checker/actions/workflows/ci.yml/badge.svg)](https://github.com/dvenkataraghuvir/Anspruch-Benefits-Checker/actions/workflows/ci.yml)
+
 A grounded German benefits-eligibility assistant. Tell it your situation, it
 tells you which benefits you likely qualify for — every claim cited to the
 official rule, amounts computed deterministically, and an honest "I can't
