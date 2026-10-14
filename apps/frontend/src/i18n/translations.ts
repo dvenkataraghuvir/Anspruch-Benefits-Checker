@@ -1,19 +1,19 @@
 // UI copy for both languages. `en` defines the shape; `de` must match it
 // key-for-key (enforced by the Messages type). No euro figures, thresholds or
-// statutory rules appear here — only product copy. Rule data lives in the
+// statutory rules appear here, only product copy. Rule data lives in the
 // engine manifests, never in the UI.
 
 export type Lang = 'de' | 'en';
 
 const en = {
   meta: {
-    home: 'Anspruch — Check your German benefit entitlements',
-    check: 'Anspruch — Eligibility check',
-    how: 'Anspruch — How it works',
-    privacy: 'Anspruch — Privacy',
-    notFound: 'Anspruch — Page not found',
+    home: 'Check your German benefit entitlements | Anspruch',
+    check: 'Eligibility check | Anspruch',
+    how: 'How it works | Anspruch',
+    privacy: 'Privacy | Anspruch',
+    notFound: 'Page not found | Anspruch',
     description:
-      'Anspruch checks your eligibility for German government benefits like Wohngeld — every result computed deterministically and backed by the official source, or honestly marked as unknown.',
+      'Anspruch checks whether you qualify for German government benefits such as Wohngeld. Every result is calculated by fixed rules and linked to the official source. If something can\'t be checked, Anspruch says so.',
   },
 
   nav: {
@@ -25,18 +25,18 @@ const en = {
   },
 
   footer: {
-    tagline: 'Cite the source or refuse — never guess.',
+    tagline: 'Every answer comes with its source.',
     product: 'Product',
     disclaimer:
-      'Anspruch provides informational guidance, not legal or tax advice. The binding decision always rests with the responsible authority.',
+      'Anspruch gives general information, not legal or tax advice. The responsible authority makes the binding decision.',
     copyright: '© 2026 Anspruch',
   },
 
   home: {
     eyebrow: 'German benefits, checked properly',
-    heroTitle: 'Find out what you may be entitled to — backed by the official rule.',
+    heroTitle: 'Find out what you may be entitled to, backed by the official rule.',
     heroLead:
-      'Anspruch checks your eligibility for German government benefits such as Wohngeld. Every result is computed by a deterministic rules engine and grounded in a dated official source. When something cannot be verified, Anspruch says so instead of guessing.',
+      'Anspruch checks whether you qualify for German government benefits such as Wohngeld. A rules engine calculates every result and links it to a dated official source. When something can\'t be verified, Anspruch tells you instead of guessing.',
     ctaPrimary: 'Start the free check',
     ctaSecondary: 'How it works',
 
@@ -44,15 +44,15 @@ const en = {
     principles: [
       {
         title: 'Cite the source or refuse',
-        body: 'Every statement is grounded in a dated official rule — for example the Wohngeldgesetz (WoGG). If a claim cannot be backed by a source, Anspruch refuses to make it.',
+        body: 'Each statement points to a dated official rule, for example the Wohngeldgesetz (WoGG). If no source backs a claim, Anspruch doesn\'t make it.',
       },
       {
         title: 'No guessed numbers',
-        body: 'Eligibility and amounts come only from a deterministic, tested rules engine. The AI never does arithmetic and can never invent a euro figure.',
+        body: 'Eligibility and amounts come only from a tested rules engine. The AI never does the math, so it can\'t make up a euro amount.',
       },
       {
         title: 'Privacy by design',
-        body: 'Income, rent and assets are processed transiently for the check. Nothing is stored unless you opt in, sensitive figures are never logged, and your browser never talks to an AI provider.',
+        body: 'Your income, rent and assets are used for the check and nothing else. Nothing is stored unless you opt in, sensitive figures never end up in logs, and your browser never talks to an AI provider.',
       },
     ],
 
@@ -60,143 +60,143 @@ const en = {
     steps: [
       {
         title: 'Describe your situation',
-        body: 'Household size, rent, income, postal code — only what the rules actually need, clearly marked when sensitive.',
+        body: 'Household size, rent, income and postal code. We only ask for what the rules need, and sensitive fields are marked.',
       },
       {
         title: 'The rules do the math',
-        body: 'A deterministic engine selects the rule version valid today and computes your eligibility. No estimates, no AI arithmetic.',
+        body: 'The engine picks the version of the rules that applies today and works out your eligibility. Nothing is estimated, and no AI is involved in the calculation.',
       },
       {
-        title: 'See grounded results',
-        body: 'Clear result cards with the legal basis cited on each one. If a detail is missing, the card names it instead of guessing.',
+        title: 'See your results',
+        body: 'Each result card cites its legal basis. If a detail is missing, the card tells you which one.',
       },
     ],
 
     programsTitle: 'What Anspruch checks',
     programsLead:
-      'Anspruch is built benefit by benefit, each as a versioned, dated rule module.',
+      'Anspruch adds one benefit at a time. Each one is a separate rule module with its own version and date.',
     programWohngeldTitle: 'Wohngeld (housing allowance)',
     programWohngeldBody:
-      'The first supported benefit. Eligibility screening is live; the official calculation figures are transcribed from the dated official sources before any amount is shown — until then, amounts are honestly marked as unavailable rather than estimated.',
+      'The first benefit Anspruch supports. Every figure in the calculation is copied from the official legal text and checked against the government\'s Wohngeld calculator. Cases that haven\'t been checked yet show "unavailable" instead of an estimate.',
     programWohngeldStatus: 'First module',
     programMoreTitle: 'More benefits to follow',
     programMoreBody:
-      'Kindergeld, Kinderzuschlag, BAföG and others follow the same pattern: a new dated rule module — the engine, the checks and the guarantees stay the same.',
+      'Kindergeld, Kinderzuschlag, BAföG and others will work the same way. Each gets its own dated rule module, while the engine and its checks stay unchanged.',
     programMoreStatus: 'In development',
 
     faqTitle: 'Frequently asked questions',
     faq: [
       {
         q: 'Is this legal advice?',
-        a: 'No. Anspruch provides informational guidance. The binding decision always rests with the responsible authority, for example your local Wohngeldbehörde.',
+        a: 'No. Anspruch gives general information. The binding decision is made by the responsible authority, for example your local Wohngeldbehörde.',
       },
       {
         q: 'What happens to my data?',
-        a: 'Your details are processed transiently to compute the result. They are not stored unless you explicitly opt in, sensitive figures are never written to logs, and your browser never sends data to an AI provider.',
+        a: 'Your details are used to calculate the result and are not stored unless you opt in. Sensitive figures are never written to logs, and your browser never sends anything to an AI provider.',
       },
       {
-        q: 'Why does it sometimes answer “cannot determine”?',
-        a: 'Because an honest refusal is worth more than a wrong guess. The result card tells you exactly which detail is missing, so you can add it and get a real answer.',
+        q: 'Why does it sometimes say "cannot determine"?',
+        a: 'Because we would rather admit we don\'t know than guess wrong about your money. The result card names the missing detail, so you can add it and get a real answer.',
       },
       {
         q: 'Does an AI calculate my benefit?',
-        a: 'No. All eligibility decisions and amounts come from a deterministic, tested rules engine. Language models only help explain results — a guard blocks any explanation whose numbers differ from the engine output.',
+        a: 'No. A tested rules engine makes every eligibility decision and calculates every amount. Language models only help explain results, and a check blocks any explanation whose numbers differ from the engine\'s.',
       },
     ],
 
     ctaBoxTitle: 'Check your entitlement in a few minutes',
-    ctaBoxBody: 'Free, no account needed, and your details are not stored.',
+    ctaBoxBody: 'It\'s free, you don\'t need an account, and nothing you enter is stored.',
   },
 
   how: {
     title: 'How Anspruch works',
     lead:
-      'A money domain does not forgive guesswork. Anspruch is built around one promise: cite the source or refuse.',
+      'When money is involved, a wrong guess can cost you. Anspruch is built around one rule: cite the source or don\'t answer.',
 
-    pipelineTitle: 'The pipeline',
+    pipelineTitle: 'Step by step',
     pipeline: [
       {
-        title: 'Your situation, typed and validated',
-        body: 'The intake form builds a structured profile — household, rent, income, region. Sensitive fields are marked, minimized and processed transiently.',
+        title: 'Your situation as structured data',
+        body: 'The form turns your answers into a structured profile of your household, rent, income and region. Sensitive fields are marked, kept to a minimum and not stored.',
       },
       {
-        title: 'A deterministic rules engine decides',
-        body: 'Each benefit is a versioned rule module transcribed from dated official sources. The engine selects the version valid on the day of your check and computes the result. No AI is involved in any calculation.',
+        title: 'A rules engine decides',
+        body: 'Each benefit is a versioned rule module copied from dated official sources. The engine uses the version that applies on the day of your check. No AI touches the calculation.',
       },
       {
-        title: 'Grounded explanations, guarded output',
-        body: 'AI is used only to explain the already-computed result in plain language, using the citations attached to it. A guard blocks any explanation containing a figure the engine did not produce.',
+        title: 'Explanations with sources',
+        body: 'AI only explains a result that has already been calculated, in plain language and using the sources attached to it. If an explanation contains a figure the engine didn\'t produce, it gets blocked.',
       },
       {
         title: 'You stay in control',
-        body: 'Anspruch never submits anything to an authority on its own. Any future application assistance requires your explicit approval at a visible gate.',
+        body: 'Anspruch never submits anything to an authority by itself. Any future help with applications will need your explicit approval first.',
       },
     ],
 
-    statesTitle: 'The five honest result states',
+    statesTitle: 'Five possible results',
     statesLead:
-      'Every check ends in exactly one of five states — including the two most tools hide: “cannot determine” and “unavailable”.',
+      'Every check ends with one of five results. Two of them, "cannot determine" and "unavailable", are ones most tools leave out.',
     states: [
       {
         name: 'Likely eligible',
-        body: 'You appear to qualify, with an amount computed by the rules engine and the legal basis cited.',
+        body: 'You probably qualify. The card shows the amount the rules engine calculated and the legal basis.',
       },
       {
-        name: 'Likely eligible — no amount',
-        body: 'You appear to qualify for a non-monetary benefit, such as a Wohnberechtigungsschein (certificate).',
+        name: 'Likely eligible, no amount',
+        body: 'You probably qualify for a benefit that isn\'t paid as money, such as a Wohnberechtigungsschein (housing certificate).',
       },
       {
         name: 'Likely not eligible',
-        body: 'The rules indicate you do not qualify, with the reason stated. Shown neutrally — not as a failure.',
+        body: 'By the rules, you probably don\'t qualify. The card gives the reason and shows it neutrally, not as a failure.',
       },
       {
         name: 'Cannot determine',
-        body: 'A required detail is missing. The card names it precisely instead of filling the gap with a guess.',
+        body: 'Something we need is missing. The card names it instead of filling the gap with a guess.',
       },
       {
         name: 'Temporarily unavailable',
-        body: 'A technical issue on our side — clearly marked as not your fault, with the option to retry.',
+        body: 'Something went wrong on our side. The card says so clearly and lets you try again.',
       },
     ],
 
-    honestyTitle: 'Honest by construction',
+    honestyTitle: 'Enforced in code',
     honestyBody:
-      'These guarantees are not a style choice — they are enforced in code. A result claiming eligibility without an amount, or an amount without a source, cannot even be constructed. Rule data is only ever transcribed from dated official publications; where figures have not yet been verified, the product says “unavailable” instead of showing a plausible-looking number.',
+      'The system can\'t even create a result that claims eligibility without an amount, or an amount without a source. Rule data comes only from dated official publications. Where a figure hasn\'t been verified yet, the app shows "unavailable" rather than a number that merely looks plausible.',
 
-    ctaTitle: 'See it in action',
+    ctaTitle: 'Try it yourself',
   },
 
   privacy: {
     title: 'Privacy',
     lead:
-      'Anspruch deals with income, rent and household data — exactly the kind of information that deserves restraint. This page explains, in plain language, how it is handled.',
+      'Anspruch handles income, rent and household data, so it collects as little as it can. This page explains in plain language what happens to that data.',
     sections: [
       {
-        title: 'What is processed',
-        body: 'Only what the benefit rules actually need: household size, residence status, postal code, rent, incomes and, where relevant, assets. Fields that are sensitive are marked as such in the form.',
+        title: 'What we process',
+        body: 'Only what the benefit rules need: household size, residence status, postal code, rent, income and, where relevant, assets. Sensitive fields are marked in the form.',
       },
       {
-        title: 'How it is processed',
-        body: 'Your details are used transiently to compute the result and are not stored unless you explicitly opt in. If data is ever persisted, it is encrypted at rest. Sensitive figures are never written to logs. Processing takes place in the EU.',
+        title: 'How we process it',
+        body: 'Your details are used to calculate the result and are not stored unless you opt in. If anything is stored, it is encrypted. Sensitive figures are never written to logs, and processing happens in the EU.',
       },
       {
         title: 'What never happens',
-        body: 'Your browser never communicates with an AI provider — all requests go exclusively to the Anspruch backend. This site sets no advertising or tracking cookies and loads no third-party fonts or scripts.',
+        body: 'Your browser never contacts an AI provider. Every request goes to the Anspruch backend and nowhere else. The site sets no advertising or tracking cookies and loads no fonts or scripts from other companies.',
       },
       {
         title: 'Your rights',
-        body: 'Under the GDPR you have the right to access, correct and erase data concerning you. Since details are not stored by default, there is usually nothing to erase — if you do opt in to saving an assessment, you can request its deletion at any time.',
+        body: 'Under the GDPR you can ask to see, correct or delete data about you. Because nothing is stored by default, there is usually nothing to delete. If you choose to save an assessment, you can have it deleted at any time.',
       },
     ],
     legalNote:
-      'Before public launch, this summary will be complemented by a full legal Datenschutzerklärung and Impressum as required by German law.',
+      'Before the public launch, a full Datenschutzerklärung and Impressum will be added, as German law requires.',
   },
 
   check: {
     title: 'Eligibility check',
-    lead: 'A few details about your household — sensitive fields are processed transiently and not stored.',
-    sampleNote: 'Showing sample results. Connect the backend to compute real ones.',
-    backendDown: 'Backend not reachable yet — still showing sample results.',
+    lead: 'A few questions about your household. Sensitive answers are not stored.',
+    sampleNote: 'These are sample results. Connect the backend to see real ones.',
+    backendDown: 'The backend isn\'t reachable yet, so you\'re still seeing sample results.',
   },
 
   intake: {
@@ -211,28 +211,28 @@ const en = {
     postalCode: 'Postal code (PLZ)',
     bundesland: 'Federal state',
     municipality: 'Municipality',
-    municipalityHint: '— only if the app asks for it',
+    municipalityHint: '(only if the app asks for it)',
     optional: 'optional',
     age: 'Age',
     householdSize: 'People in household',
-    privacyPanel: 'These details are processed securely and not stored.',
+    privacyPanel: 'These details are handled securely and not stored.',
     coldRent: 'Cold rent (Bruttokaltmiete) €/month',
     coldRentPlaceholder: 'e.g. 750',
     coldRentHint:
-      'Enter cold rent only — do not include heating. The app adds the § 12 WoGG heating component automatically.',
+      'Enter the cold rent without heating. The app adds the heating component from § 12 WoGG itself.',
     membersTitle: 'Monthly gross income per person',
-    membersHint: 'Tick each box that applies (§ 16 WoGG deductions, 10% each).',
+    membersHint: 'Tick every box that applies. Each one is a 10% deduction under § 16 WoGG.',
     person: 'Person',
     grossPlaceholder: 'Gross in €',
     werbungskosten: 'Work-related expenses (Werbungskosten) €/month',
     werbungskostenHint:
-      'Employees: 102.50 € is the standard allowance — enter more only if your actual costs are higher. Pension or self-employed income: enter your actual costs or 0.',
+      'Employees: 102.50 € is the standard allowance. Only enter more if your actual costs are higher. For pension or self-employed income, enter your actual costs or 0.',
     checkTax: 'Income tax (Einkommensteuer)',
     checkHealth: 'Statutory health & care insurance',
     checkPension: 'Statutory pension insurance',
     assets: 'Total household assets €',
     assetsPlaceholder: '0 or leave blank',
-    assetsHint: 'Relevant for § 21 WoGG. Leave blank if no significant savings or property.',
+    assetsHint: 'Needed for § 21 WoGG. Leave it blank if you have no significant savings or property.',
     coveringBenefit: 'Do you receive a benefit that already covers housing costs?',
     coveringBenefitHint:
       'Examples: Bürgergeld (SGB II), Sozialhilfe / Grundsicherung (SGB XII), Asylbewerberleistungen',
@@ -250,7 +250,7 @@ const en = {
 
   results: {
     title: 'What you may be entitled to',
-    subtitle: 'Tap a benefit to see why — and how to apply.',
+    subtitle: 'Each card explains the result and cites the rule it is based on.',
     states: {
       eligible: 'Likely eligible',
       eligible_no_amount: 'Likely eligible',
@@ -264,19 +264,19 @@ const en = {
     stillNeeded: 'Still needed:',
     addDetail: '+ Add detail',
     plzNotCovered:
-      'This postal code is not covered yet — we’re adding more regions as we verify them. Try your local Wohngeldbehörde in the meantime.',
-    unavailableDefault: 'Temporarily unavailable — this is not something you did.',
+      'We don\'t cover this postal code yet. We add regions once we have verified them. Until then, your local Wohngeldbehörde can help.',
+    unavailableDefault: 'Temporarily unavailable. This isn\'t caused by anything you did.',
     retry: 'Try again',
     officialSource: 'Official source →',
     cardDisclaimer:
-      'This is an estimate, not legal advice — the binding decision rests with your local Wohngeldbehörde.',
+      'This is an estimate, not legal advice. Your local Wohngeldbehörde makes the binding decision.',
     findOffice: 'Find your Wohngeldstelle →',
-    pageDisclaimer: 'Informational guidance, not legal or tax advice.',
+    pageDisclaimer: 'General information, not legal or tax advice.',
   },
 
   notFound: {
     title: 'Page not found',
-    body: 'The page you are looking for does not exist or has moved.',
+    body: 'This page doesn\'t exist or has moved.',
     backHome: 'Back to the homepage',
   },
 };
@@ -285,13 +285,13 @@ export type Messages = typeof en;
 
 const de: Messages = {
   meta: {
-    home: 'Anspruch — Staatliche Leistungen prüfen',
-    check: 'Anspruch — Anspruchs-Check',
-    how: 'Anspruch — So funktioniert es',
-    privacy: 'Anspruch — Datenschutz',
-    notFound: 'Anspruch — Seite nicht gefunden',
+    home: 'Staatliche Leistungen prüfen | Anspruch',
+    check: 'Anspruchs-Check | Anspruch',
+    how: 'So funktioniert es | Anspruch',
+    privacy: 'Datenschutz | Anspruch',
+    notFound: 'Seite nicht gefunden | Anspruch',
     description:
-      'Anspruch prüft Ihren Anspruch auf staatliche Leistungen wie Wohngeld — jedes Ergebnis deterministisch berechnet und mit der amtlichen Quelle belegt, oder ehrlich als unbekannt gekennzeichnet.',
+      'Anspruch prüft, ob Ihnen staatliche Leistungen wie Wohngeld zustehen. Jedes Ergebnis wird nach festen Regeln berechnet und mit der amtlichen Quelle verknüpft. Was sich nicht prüfen lässt, sagt Anspruch offen.',
   },
 
   nav: {
@@ -303,18 +303,18 @@ const de: Messages = {
   },
 
   footer: {
-    tagline: 'Quelle zitieren oder ablehnen — niemals raten.',
+    tagline: 'Jede Antwort mit Quelle.',
     product: 'Produkt',
     disclaimer:
-      'Anspruch bietet informative Orientierung, keine Rechts- oder Steuerberatung. Die verbindliche Entscheidung trifft immer die zuständige Behörde.',
+      'Anspruch bietet allgemeine Informationen, keine Rechts- oder Steuerberatung. Verbindlich entscheidet die zuständige Behörde.',
     copyright: '© 2026 Anspruch',
   },
 
   home: {
     eyebrow: 'Staatliche Leistungen, richtig geprüft',
-    heroTitle: 'Finden Sie heraus, was Ihnen zustehen könnte — belegt mit der amtlichen Regel.',
+    heroTitle: 'Finden Sie heraus, was Ihnen zustehen könnte, belegt mit der amtlichen Regel.',
     heroLead:
-      'Anspruch prüft Ihren Anspruch auf staatliche Leistungen wie Wohngeld. Jedes Ergebnis wird von einem deterministischen Regelwerk berechnet und mit einer datierten amtlichen Quelle belegt. Was sich nicht belegen lässt, sagt Anspruch ehrlich — statt zu raten.',
+      'Anspruch prüft, ob Ihnen staatliche Leistungen wie Wohngeld zustehen. Ein Regelwerk berechnet jedes Ergebnis und verknüpft es mit einer datierten amtlichen Quelle. Lässt sich etwas nicht belegen, sagt Anspruch das, statt zu raten.',
     ctaPrimary: 'Kostenlosen Check starten',
     ctaSecondary: 'So funktioniert es',
 
@@ -322,15 +322,15 @@ const de: Messages = {
     principles: [
       {
         title: 'Quelle zitieren oder ablehnen',
-        body: 'Jede Aussage ist in einer datierten amtlichen Regel verankert — zum Beispiel im Wohngeldgesetz (WoGG). Lässt sich eine Aussage nicht belegen, macht Anspruch sie nicht.',
+        body: 'Jede Aussage stützt sich auf eine datierte amtliche Regel, zum Beispiel das Wohngeldgesetz (WoGG). Gibt es keine Quelle, trifft Anspruch keine Aussage.',
       },
       {
         title: 'Keine geratenen Zahlen',
-        body: 'Anspruch und Beträge kommen ausschließlich aus einem deterministischen, getesteten Regelwerk. Die KI rechnet nie und kann keinen Eurobetrag erfinden.',
+        body: 'Anspruch und Beträge ergeben sich nur aus einem getesteten Regelwerk. Die KI rechnet nie und kann deshalb keinen Eurobetrag erfinden.',
       },
       {
         title: 'Datenschutz von Anfang an',
-        body: 'Einkommen, Miete und Vermögen werden nur flüchtig für die Prüfung verarbeitet. Ohne Ihre Zustimmung wird nichts gespeichert, sensible Zahlen werden nie protokolliert, und Ihr Browser kommuniziert nie mit einem KI-Anbieter.',
+        body: 'Einkommen, Miete und Vermögen werden nur für die Prüfung verwendet. Ohne Ihre Zustimmung wird nichts gespeichert, sensible Zahlen landen nie in Protokollen, und Ihr Browser spricht nie mit einem KI-Anbieter.',
       },
     ],
 
@@ -338,143 +338,143 @@ const de: Messages = {
     steps: [
       {
         title: 'Situation beschreiben',
-        body: 'Haushaltsgröße, Miete, Einkommen, Postleitzahl — nur, was die Regeln wirklich brauchen, sensible Felder klar gekennzeichnet.',
+        body: 'Haushaltsgröße, Miete, Einkommen und Postleitzahl. Wir fragen nur, was die Regeln brauchen, und sensible Felder sind markiert.',
       },
       {
         title: 'Die Regeln rechnen',
-        body: 'Ein deterministisches Regelwerk wählt die heute gültige Regelversion und berechnet Ihren Anspruch. Keine Schätzungen, keine KI-Rechnung.',
+        body: 'Das Regelwerk nimmt die Fassung, die heute gilt, und prüft damit Ihren Anspruch. Nichts wird geschätzt, und keine KI rechnet mit.',
       },
       {
-        title: 'Belegte Ergebnisse sehen',
-        body: 'Klare Ergebniskarten mit zitierter Rechtsgrundlage. Fehlt eine Angabe, benennt die Karte sie — statt zu raten.',
+        title: 'Ergebnisse ansehen',
+        body: 'Jede Ergebniskarte nennt ihre Rechtsgrundlage. Fehlt eine Angabe, steht auf der Karte, welche.',
       },
     ],
 
     programsTitle: 'Was Anspruch prüft',
     programsLead:
-      'Anspruch wird Leistung für Leistung aufgebaut — jede als versioniertes, datiertes Regelmodul.',
+      'Anspruch wächst Leistung für Leistung. Jede Leistung ist ein eigenes Regelmodul mit Version und Datum.',
     programWohngeldTitle: 'Wohngeld',
     programWohngeldBody:
-      'Die erste unterstützte Leistung. Die Anspruchsprüfung ist aktiv; die amtlichen Berechnungswerte werden aus den datierten amtlichen Quellen übernommen, bevor ein Betrag angezeigt wird — bis dahin werden Beträge ehrlich als nicht verfügbar gekennzeichnet statt geschätzt.',
+      'Die erste Leistung, die Anspruch unterstützt. Jeder Wert der Berechnung stammt aus dem amtlichen Gesetzestext und wurde mit dem Wohngeldrechner des Bundes abgeglichen. Fälle, die noch nicht geprüft sind, zeigt die App als „nicht verfügbar“ statt mit einer Schätzung.',
     programWohngeldStatus: 'Erstes Modul',
     programMoreTitle: 'Weitere Leistungen folgen',
     programMoreBody:
-      'Kindergeld, Kinderzuschlag, BAföG und weitere folgen demselben Muster: ein neues datiertes Regelmodul — Regelwerk, Prüfungen und Garantien bleiben gleich.',
+      'Kindergeld, Kinderzuschlag, BAföG und weitere Leistungen funktionieren genauso. Jede bekommt ein eigenes datiertes Regelmodul, das Regelwerk und seine Prüfungen bleiben unverändert.',
     programMoreStatus: 'In Entwicklung',
 
     faqTitle: 'Häufige Fragen',
     faq: [
       {
         q: 'Ist das Rechtsberatung?',
-        a: 'Nein. Anspruch bietet informative Orientierung. Die verbindliche Entscheidung trifft immer die zuständige Behörde, zum Beispiel Ihre Wohngeldbehörde.',
+        a: 'Nein. Anspruch bietet allgemeine Informationen. Verbindlich entscheidet die zuständige Behörde, zum Beispiel Ihre Wohngeldbehörde.',
       },
       {
         q: 'Was passiert mit meinen Daten?',
-        a: 'Ihre Angaben werden flüchtig verarbeitet, um das Ergebnis zu berechnen. Sie werden nicht gespeichert, es sei denn, Sie stimmen ausdrücklich zu. Sensible Zahlen werden nie protokolliert, und Ihr Browser sendet keine Daten an einen KI-Anbieter.',
+        a: 'Ihre Angaben werden zur Berechnung verwendet und nicht gespeichert, außer Sie stimmen ausdrücklich zu. Sensible Zahlen landen nie in Protokollen, und Ihr Browser sendet nichts an einen KI-Anbieter.',
       },
       {
-        q: 'Warum antwortet es manchmal „nicht feststellbar“?',
-        a: 'Weil eine ehrliche Absage mehr wert ist als eine falsche Vermutung. Die Ergebniskarte benennt genau, welche Angabe fehlt — damit Sie sie ergänzen und eine echte Antwort bekommen.',
+        q: 'Warum steht manchmal „nicht feststellbar“?',
+        a: 'Weil wir bei Ihrem Geld lieber zugeben, dass wir etwas nicht wissen, als falsch zu raten. Die Ergebniskarte nennt die fehlende Angabe. Ergänzen Sie sie, und Sie bekommen eine echte Antwort.',
       },
       {
         q: 'Berechnet eine KI meine Leistung?',
-        a: 'Nein. Alle Entscheidungen und Beträge kommen aus einem deterministischen, getesteten Regelwerk. Sprachmodelle helfen nur beim Erklären — eine Schutzfunktion blockiert jede Erklärung, deren Zahlen vom Ergebnis des Regelwerks abweichen.',
+        a: 'Nein. Alle Entscheidungen und Beträge kommen aus einem getesteten Regelwerk. Sprachmodelle helfen nur beim Erklären, und eine Prüfung blockiert jede Erklärung, deren Zahlen vom Regelwerk abweichen.',
       },
     ],
 
     ctaBoxTitle: 'Prüfen Sie Ihren Anspruch in wenigen Minuten',
-    ctaBoxBody: 'Kostenlos, ohne Konto — Ihre Angaben werden nicht gespeichert.',
+    ctaBoxBody: 'Kostenlos und ohne Konto. Ihre Angaben werden nicht gespeichert.',
   },
 
   how: {
     title: 'So funktioniert Anspruch',
     lead:
-      'Bei Geld verzeiht nichts eine Vermutung. Anspruch ist um ein Versprechen herum gebaut: Quelle zitieren oder ablehnen.',
+      'Wenn es um Geld geht, kann eine falsche Vermutung teuer werden. Anspruch folgt deshalb einer Regel: Quelle nennen oder nicht antworten.',
 
-    pipelineTitle: 'Der Ablauf',
+    pipelineTitle: 'Schritt für Schritt',
     pipeline: [
       {
-        title: 'Ihre Situation, strukturiert und validiert',
-        body: 'Das Formular erstellt ein strukturiertes Profil — Haushalt, Miete, Einkommen, Region. Sensible Felder sind gekennzeichnet, auf das Nötigste beschränkt und werden flüchtig verarbeitet.',
+        title: 'Ihre Situation als strukturierte Daten',
+        body: 'Das Formular macht aus Ihren Antworten ein strukturiertes Profil mit Haushalt, Miete, Einkommen und Region. Sensible Felder sind markiert, auf das Nötigste beschränkt und werden nicht gespeichert.',
       },
       {
-        title: 'Ein deterministisches Regelwerk entscheidet',
-        body: 'Jede Leistung ist ein versioniertes Regelmodul, übertragen aus datierten amtlichen Quellen. Das Regelwerk wählt die am Prüftag gültige Version und berechnet das Ergebnis. An keiner Berechnung ist KI beteiligt.',
+        title: 'Ein Regelwerk entscheidet',
+        body: 'Jede Leistung ist ein versioniertes Regelmodul, übertragen aus datierten amtlichen Quellen. Das Regelwerk nutzt die Fassung, die am Tag Ihrer Prüfung gilt. An der Berechnung ist keine KI beteiligt.',
       },
       {
-        title: 'Belegte Erklärungen, geprüfte Ausgabe',
-        body: 'KI wird nur genutzt, um das bereits berechnete Ergebnis verständlich zu erklären — mit den beigefügten Quellen. Eine Schutzfunktion blockiert jede Erklärung mit einer Zahl, die das Regelwerk nicht erzeugt hat.',
+        title: 'Erklärungen mit Quellen',
+        body: 'KI erklärt nur ein Ergebnis, das bereits berechnet ist, in einfacher Sprache und mit den beigefügten Quellen. Enthält eine Erklärung eine Zahl, die nicht vom Regelwerk stammt, wird sie blockiert.',
       },
       {
         title: 'Sie behalten die Kontrolle',
-        body: 'Anspruch reicht nie eigenständig etwas bei einer Behörde ein. Jede künftige Antragshilfe erfordert Ihre ausdrückliche Freigabe an einer sichtbaren Stelle.',
+        body: 'Anspruch reicht nie selbst etwas bei einer Behörde ein. Jede künftige Hilfe beim Antrag braucht vorher Ihre ausdrückliche Freigabe.',
       },
     ],
 
-    statesTitle: 'Die fünf ehrlichen Ergebniszustände',
+    statesTitle: 'Fünf mögliche Ergebnisse',
     statesLead:
-      'Jede Prüfung endet in genau einem von fünf Zuständen — einschließlich der beiden, die die meisten Tools verstecken: „nicht feststellbar“ und „nicht verfügbar“.',
+      'Jede Prüfung endet mit einem von fünf Ergebnissen. Zwei davon, „nicht feststellbar“ und „nicht verfügbar“, lassen die meisten Tools einfach weg.',
     states: [
       {
         name: 'Wahrscheinlich berechtigt',
-        body: 'Sie erfüllen die Voraussetzungen voraussichtlich — mit einem vom Regelwerk berechneten Betrag und zitierter Rechtsgrundlage.',
+        body: 'Sie erfüllen voraussichtlich die Voraussetzungen. Die Karte zeigt den berechneten Betrag und die Rechtsgrundlage.',
       },
       {
-        name: 'Wahrscheinlich berechtigt — ohne Betrag',
-        body: 'Sie erfüllen voraussichtlich die Voraussetzungen für eine nicht-monetäre Leistung, etwa einen Wohnberechtigungsschein.',
+        name: 'Wahrscheinlich berechtigt, ohne Betrag',
+        body: 'Sie haben voraussichtlich Anspruch auf eine Leistung, die nicht als Geld ausgezahlt wird, etwa einen Wohnberechtigungsschein.',
       },
       {
         name: 'Wahrscheinlich nicht berechtigt',
-        body: 'Nach den Regeln besteht voraussichtlich kein Anspruch — mit Begründung. Neutral dargestellt, nicht als Misserfolg.',
+        body: 'Nach den Regeln besteht voraussichtlich kein Anspruch. Die Karte nennt den Grund und zeigt ihn neutral, nicht als Misserfolg.',
       },
       {
         name: 'Nicht feststellbar',
-        body: 'Eine erforderliche Angabe fehlt. Die Karte benennt sie präzise, statt die Lücke mit einer Vermutung zu füllen.',
+        body: 'Eine nötige Angabe fehlt. Die Karte nennt sie, statt die Lücke mit einer Vermutung zu füllen.',
       },
       {
         name: 'Vorübergehend nicht verfügbar',
-        body: 'Ein technisches Problem auf unserer Seite — klar gekennzeichnet als nicht Ihr Fehler, mit der Möglichkeit, es erneut zu versuchen.',
+        body: 'Bei uns ist etwas schiefgelaufen. Die Karte sagt das deutlich, und Sie können es erneut versuchen.',
       },
     ],
 
-    honestyTitle: 'Ehrlich per Konstruktion',
+    honestyTitle: 'Im Code verankert',
     honestyBody:
-      'Diese Garantien sind keine Stilfrage — sie sind im Code verankert. Ein Ergebnis, das Berechtigung ohne Betrag oder einen Betrag ohne Quelle behauptet, kann gar nicht erst entstehen. Regeldaten werden ausschließlich aus datierten amtlichen Veröffentlichungen übernommen; wo Werte noch nicht verifiziert sind, sagt das Produkt „nicht verfügbar“, statt eine plausibel wirkende Zahl zu zeigen.',
+      'Ein Ergebnis, das Berechtigung ohne Betrag oder einen Betrag ohne Quelle behauptet, kann das System gar nicht erzeugen. Regeldaten stammen nur aus datierten amtlichen Veröffentlichungen. Ist ein Wert noch nicht geprüft, zeigt die App „nicht verfügbar“ statt einer Zahl, die nur plausibel aussieht.',
 
-    ctaTitle: 'Sehen Sie es in Aktion',
+    ctaTitle: 'Probieren Sie es aus',
   },
 
   privacy: {
     title: 'Datenschutz',
     lead:
-      'Anspruch verarbeitet Einkommen, Miete und Haushaltsdaten — genau die Art von Informationen, die Zurückhaltung verdient. Diese Seite erklärt verständlich, wie damit umgegangen wird.',
+      'Anspruch verarbeitet Einkommen, Miete und Haushaltsdaten und erhebt deshalb so wenig wie möglich. Hier steht in einfachen Worten, was mit diesen Daten passiert.',
     sections: [
       {
-        title: 'Was verarbeitet wird',
-        body: 'Nur, was die Leistungsregeln tatsächlich benötigen: Haushaltsgröße, Aufenthaltsstatus, Postleitzahl, Miete, Einkommen und gegebenenfalls Vermögen. Sensible Felder sind im Formular als solche gekennzeichnet.',
+        title: 'Was wir verarbeiten',
+        body: 'Nur, was die Leistungsregeln brauchen: Haushaltsgröße, Aufenthaltsstatus, Postleitzahl, Miete, Einkommen und gegebenenfalls Vermögen. Sensible Felder sind im Formular markiert.',
       },
       {
-        title: 'Wie verarbeitet wird',
-        body: 'Ihre Angaben werden flüchtig zur Berechnung des Ergebnisses genutzt und nicht gespeichert, es sei denn, Sie stimmen ausdrücklich zu. Sollte je etwas gespeichert werden, geschieht das verschlüsselt. Sensible Zahlen werden nie protokolliert. Die Verarbeitung findet in der EU statt.',
+        title: 'Wie wir verarbeiten',
+        body: 'Ihre Angaben dienen nur der Berechnung und werden nicht gespeichert, außer Sie stimmen ausdrücklich zu. Wird etwas gespeichert, dann verschlüsselt. Sensible Zahlen landen nie in Protokollen, und die Verarbeitung findet in der EU statt.',
       },
       {
         title: 'Was nie passiert',
-        body: 'Ihr Browser kommuniziert nie mit einem KI-Anbieter — alle Anfragen gehen ausschließlich an das Anspruch-Backend. Diese Seite setzt keine Werbe- oder Tracking-Cookies und lädt keine Schriften oder Skripte von Dritten.',
+        body: 'Ihr Browser kontaktiert nie einen KI-Anbieter. Jede Anfrage geht an das Anspruch-Backend und nirgendwo sonst hin. Die Seite setzt keine Werbe- oder Tracking-Cookies und lädt keine Schriften oder Skripte von Dritten.',
       },
       {
         title: 'Ihre Rechte',
-        body: 'Nach der DSGVO haben Sie das Recht auf Auskunft, Berichtigung und Löschung Ihrer Daten. Da Angaben standardmäßig nicht gespeichert werden, gibt es meist nichts zu löschen — falls Sie eine Prüfung speichern, können Sie deren Löschung jederzeit verlangen.',
+        body: 'Nach der DSGVO können Sie Auskunft, Berichtigung und Löschung Ihrer Daten verlangen. Da standardmäßig nichts gespeichert wird, gibt es meist nichts zu löschen. Haben Sie eine Prüfung gespeichert, können Sie sie jederzeit löschen lassen.',
       },
     ],
     legalNote:
-      'Vor einem öffentlichen Start wird diese Zusammenfassung um eine vollständige Datenschutzerklärung und ein Impressum ergänzt, wie es das deutsche Recht verlangt.',
+      'Vor dem öffentlichen Start kommen eine vollständige Datenschutzerklärung und ein Impressum hinzu, wie es das deutsche Recht verlangt.',
   },
 
   check: {
     title: 'Anspruchs-Check',
-    lead: 'Einige Angaben zu Ihrem Haushalt — sensible Felder werden flüchtig verarbeitet und nicht gespeichert.',
-    sampleNote: 'Beispielergebnisse werden angezeigt. Backend verbinden, um echte zu berechnen.',
-    backendDown: 'Backend noch nicht erreichbar — weiterhin Beispielergebnisse.',
+    lead: 'Ein paar Fragen zu Ihrem Haushalt. Sensible Angaben werden nicht gespeichert.',
+    sampleNote: 'Das sind Beispielergebnisse. Verbinden Sie das Backend, um echte zu sehen.',
+    backendDown: 'Das Backend ist noch nicht erreichbar, deshalb sehen Sie weiter Beispielergebnisse.',
   },
 
   intake: {
@@ -489,7 +489,7 @@ const de: Messages = {
     postalCode: 'Postleitzahl (PLZ)',
     bundesland: 'Bundesland',
     municipality: 'Gemeinde',
-    municipalityHint: '— nur, wenn die App danach fragt',
+    municipalityHint: '(nur, wenn die App danach fragt)',
     optional: 'optional',
     age: 'Alter',
     householdSize: 'Personen im Haushalt',
@@ -497,20 +497,20 @@ const de: Messages = {
     coldRent: 'Kaltmiete (Bruttokaltmiete) €/Monat',
     coldRentPlaceholder: 'z. B. 750',
     coldRentHint:
-      'Nur Kaltmiete angeben — ohne Heizkosten. Die App ergänzt die Heizkomponente nach § 12 WoGG automatisch.',
+      'Nur die Kaltmiete ohne Heizkosten angeben. Die Heizkomponente nach § 12 WoGG rechnet die App selbst dazu.',
     membersTitle: 'Monatliches Bruttoeinkommen je Person',
-    membersHint: 'Zutreffendes ankreuzen (§ 16 WoGG-Abzüge, je 10 %).',
+    membersHint: 'Alles Zutreffende ankreuzen. Jedes Kreuz ist ein Abzug von 10 % nach § 16 WoGG.',
     person: 'Person',
     grossPlaceholder: 'Brutto in €',
     werbungskosten: 'Werbungskosten €/Monat',
     werbungskostenHint:
-      'Arbeitnehmer:innen: 102,50 € ist der Arbeitnehmer-Pauschbetrag — nur mehr eintragen, wenn Ihre tatsächlichen Kosten höher sind. Rente oder selbstständige Einkünfte: tatsächliche Kosten oder 0 eintragen.',
+      'Arbeitnehmer:innen: 102,50 € ist der Arbeitnehmer-Pauschbetrag. Mehr nur eintragen, wenn Ihre tatsächlichen Kosten höher sind. Bei Rente oder selbstständigen Einkünften die tatsächlichen Kosten oder 0 eintragen.',
     checkTax: 'Einkommensteuer',
     checkHealth: 'Gesetzliche Kranken- und Pflegeversicherung',
     checkPension: 'Gesetzliche Rentenversicherung',
     assets: 'Gesamtvermögen des Haushalts €',
     assetsPlaceholder: '0 oder freilassen',
-    assetsHint: 'Relevant für § 21 WoGG. Freilassen, wenn kein nennenswertes Vermögen vorhanden.',
+    assetsHint: 'Wichtig für § 21 WoGG. Leer lassen, wenn Sie kein nennenswertes Erspartes oder Eigentum haben.',
     coveringBenefit: 'Erhalten Sie eine Leistung, die die Wohnkosten bereits abdeckt?',
     coveringBenefitHint:
       'Beispiele: Bürgergeld (SGB II), Sozialhilfe / Grundsicherung (SGB XII), Asylbewerberleistungen',
@@ -528,7 +528,7 @@ const de: Messages = {
 
   results: {
     title: 'Was Ihnen zustehen könnte',
-    subtitle: 'Tippen Sie auf eine Leistung, um Gründe und Antragsweg zu sehen.',
+    subtitle: 'Jede Karte erklärt das Ergebnis und nennt die Regel, auf der es beruht.',
     states: {
       eligible: 'Wahrscheinlich berechtigt',
       eligible_no_amount: 'Wahrscheinlich berechtigt',
@@ -542,19 +542,19 @@ const de: Messages = {
     stillNeeded: 'Noch benötigt:',
     addDetail: '+ Angabe ergänzen',
     plzNotCovered:
-      'Diese Postleitzahl ist noch nicht abgedeckt — wir ergänzen weitere Regionen, sobald sie verifiziert sind. Wenden Sie sich in der Zwischenzeit an Ihre Wohngeldbehörde.',
-    unavailableDefault: 'Vorübergehend nicht verfügbar — das liegt nicht an Ihnen.',
+      'Diese Postleitzahl ist noch nicht abgedeckt. Wir nehmen Regionen auf, sobald sie geprüft sind. Bis dahin hilft Ihre Wohngeldbehörde weiter.',
+    unavailableDefault: 'Vorübergehend nicht verfügbar. Das liegt nicht an Ihnen.',
     retry: 'Erneut versuchen',
     officialSource: 'Amtliche Quelle →',
     cardDisclaimer:
-      'Dies ist eine Einschätzung, keine Rechtsberatung — die verbindliche Entscheidung trifft Ihre Wohngeldbehörde.',
+      'Dies ist eine Einschätzung, keine Rechtsberatung. Verbindlich entscheidet Ihre Wohngeldbehörde.',
     findOffice: 'Wohngeldstelle finden →',
-    pageDisclaimer: 'Informative Orientierung, keine Rechts- oder Steuerberatung.',
+    pageDisclaimer: 'Allgemeine Informationen, keine Rechts- oder Steuerberatung.',
   },
 
   notFound: {
     title: 'Seite nicht gefunden',
-    body: 'Die gesuchte Seite existiert nicht oder wurde verschoben.',
+    body: 'Diese Seite gibt es nicht oder sie wurde verschoben.',
     backHome: 'Zurück zur Startseite',
   },
 };

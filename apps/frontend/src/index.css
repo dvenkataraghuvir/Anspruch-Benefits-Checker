@@ -153,12 +153,27 @@ a { color: var(--green); }
 .faq { display: flex; flex-direction: column; gap: 10px; }
 .faq-item {
   background: var(--paper); border: 1px solid var(--line);
-  border-radius: 12px; padding: 4px 18px;
+  border-radius: 12px; padding: 0 18px;
+  transition: border-color .2s, background .2s;
 }
+.faq-item:hover { border-color: var(--green); }
+.faq-item[open] { background: var(--surface); border-color: var(--green); }
 .faq-item summary {
-  cursor: pointer; font-weight: 600; padding: 12px 0; list-style-position: outside;
+  cursor: pointer; font-weight: 600; padding: 16px 0;
+  list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px;
 }
-.faq-item p { margin: 0 0 14px; color: var(--muted); }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+'; flex-shrink: 0;
+  width: 26px; height: 26px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--green-soft); color: var(--green);
+  font-size: 18px; font-weight: 500; line-height: 1;
+  transition: transform .25s ease, background .2s, color .2s;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); background: var(--green); color: #fff; }
+.faq-item summary:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; border-radius: 6px; }
+.faq-item p { margin: 0 0 16px; color: var(--muted); line-height: 1.6; }
 
 /* ── CTA box ────────────────────────────────────────────────────── */
 .cta-box {

@@ -62,7 +62,7 @@ export const SAMPLE_RESULTS: EligibilityResult[] = [
     program_version: '2026',
     state: 'unavailable',
     headline: 'BAföG',
-    reason: "We couldn't complete this check right now — it's not something you did.",
+    reason: "We couldn't complete this check right now. It isn't caused by anything you did.",
     estimated_amount: null,
     missing_inputs: [],
     required_documents: [],

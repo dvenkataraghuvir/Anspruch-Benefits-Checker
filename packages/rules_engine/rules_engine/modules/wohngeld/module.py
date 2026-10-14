@@ -69,7 +69,7 @@ class WohngeldModule:
                 program_id=PROGRAM_ID,
                 program_version=VERSION,
                 state=ResultState.NOT_ELIGIBLE,
-                headline="Not eligible — housing costs covered by another benefit",
+                headline="Not eligible: housing costs covered by another benefit",
                 reason=(
                     "Households receiving Bürgergeld (SGB II), Sozialhilfe or "
                     "Grundsicherung (SGB XII), or Asylbewerberleistungen are "
@@ -89,7 +89,7 @@ class WohngeldModule:
                     program_id=PROGRAM_ID,
                     program_version=VERSION,
                     state=ResultState.NOT_ELIGIBLE,
-                    headline="Not eligible — assets exceed the allowance",
+                    headline="Not eligible: assets exceed the allowance",
                     reason=(
                         f"Household assets exceed the allowance of "
                         f"{int(allowance):,} € "
@@ -151,8 +151,8 @@ class WohngeldModule:
                 state=ResultState.UNAVAILABLE,
                 headline="Not yet verified for this household size",
                 reason=(
-                    "Wohngeld for this household size isn't verified yet — "
-                    "we're adding more sizes as we confirm them against the "
+                    "Wohngeld for this household size isn't verified yet. "
+                    "We add more sizes once we have checked them against the "
                     "official calculator."
                 ),
                 citations=[_citation()],
@@ -167,8 +167,8 @@ class WohngeldModule:
                 headline="Income above the Wohngeld limit",
                 reason=(
                     "Based on your household size and income, the calculated "
-                    "Wohngeld amount is zero — your income exceeds the limit "
-                    "for your household configuration."
+                    "Wohngeld amount is zero, so your income is above the limit "
+                    "for your household."
                 ),
                 citations=[_citation()],
             )
@@ -193,8 +193,8 @@ class WohngeldModule:
             headline="Likely eligible",
             reason=(
                 "Based on your household size, income, and rent. "
-                "This is an estimate — the official determination rests with "
-                "your local Wohngeldbehörde."
+                "This is an estimate. Your local Wohngeldbehörde makes the "
+                "official decision."
             ),
             estimated_amount=amount,
             notes=notes,
