@@ -1,0 +1,73 @@
+import type { EligibilityResult } from '../../contract/types';
+
+// SAMPLE data to preview the five ResultCard states WITHOUT a backend.
+// Replace at runtime with live results from api.assess(). Amounts are placeholders.
+export const SAMPLE_RESULTS: EligibilityResult[] = [
+  {
+    program_id: 'wohngeld',
+    program_version: '2026',
+    state: 'eligible',
+    headline: 'Wohngeld',
+    reason: 'Based on your household size, income and rent.',
+    estimated_amount: { amount: '0', currency: 'EUR' }, // placeholder — real amount after review
+    missing_inputs: [],
+    required_documents: [],
+    application_url: null,
+    citations: [
+      { source_title: 'WoGG', source_url: '#', effective_year: '2026', legal_basis: '§ 19 WoGG', snippet: null },
+    ],
+    notes: [],
+  },
+  {
+    program_id: 'wbs',
+    program_version: '2026',
+    state: 'eligible_no_amount',
+    headline: 'Wohnberechtigungsschein (WBS)',
+    reason: 'Your income is within the limit for subsidised housing.',
+    estimated_amount: null,
+    missing_inputs: [],
+    required_documents: [],
+    application_url: null,
+    citations: [{ source_title: 'WoFG', source_url: '#', effective_year: '2026', legal_basis: null, snippet: null }],
+    notes: [],
+  },
+  {
+    program_id: 'kinderzuschlag',
+    program_version: '2026',
+    state: 'cannot_determine',
+    headline: 'Kinderzuschlag',
+    reason: '',
+    estimated_amount: null,
+    missing_inputs: ["children's dates of birth"],
+    required_documents: [],
+    application_url: null,
+    citations: [{ source_title: 'BKGG', source_url: '#', effective_year: '2026', legal_basis: null, snippet: null }],
+    notes: [],
+  },
+  {
+    program_id: 'buergergeld',
+    program_version: '2026',
+    state: 'not_eligible',
+    headline: 'Bürgergeld',
+    reason: 'Your income is above the basic-security threshold for your household.',
+    estimated_amount: null,
+    missing_inputs: [],
+    required_documents: [],
+    application_url: null,
+    citations: [{ source_title: 'SGB II', source_url: '#', effective_year: '2026', legal_basis: null, snippet: null }],
+    notes: [],
+  },
+  {
+    program_id: 'bafoeg',
+    program_version: '2026',
+    state: 'unavailable',
+    headline: 'BAföG',
+    reason: "We couldn't complete this check right now — it's not something you did.",
+    estimated_amount: null,
+    missing_inputs: [],
+    required_documents: [],
+    application_url: null,
+    citations: [],
+    notes: [],
+  },
+];

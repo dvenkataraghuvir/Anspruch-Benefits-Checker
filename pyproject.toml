@@ -1,0 +1,6 @@
+[tool.pytest.ini_options]
+testpaths = [
+    "apps/backend/tests",
+    "packages/rules_engine/rules_engine/modules/wohngeld/tests",
+    "packages/grounding/tests",
+]

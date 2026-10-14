@@ -1,0 +1,196 @@
+program_id: wohngeld
+version: "2026"
+jurisdiction: DE
+effective_from: "2026-01-01"
+effective_to: "2026-12-31"    # 2025 figures (BGBl. 2024 I Nr. 314); § 43 WoGG update / reform due 2027-01-01
+role_tags: [housing]
+legal_basis: "WoGG (Wohngeldgesetz)"
+
+source:
+  # All calculation figures below were re-checked against these pages on 2026-10-14.
+  # See docs/WOHNGELD_FIGURES.md for the field-by-field checklist.
+  title: "Wohngeldgesetz (WoGG), §§ 12, 19 and Anlagen 1–3, as amended by BGBl. 2024 I Nr. 314"
+  url: "https://www.gesetze-im-internet.de/wogg/"
+  fetched_at: "2026-10-14"
+  content_hash: "TODO"
+
+required_documents:
+  # TODO(verify): confirm against the official application checklist before shipping.
+  - "Proof of identity and registered residence (Anmeldung)"
+  - "Rental contract (Mietvertrag)"
+  - "Proof of rent and utility costs"
+  - "Proof of income for all household members"
+  - "Bank statements / proof of assets where required"
+  - "Completed Wohngeld application form"
+
+application_url: "TODO://official-application"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DO NOT hardcode euro amounts, income ceilings, or Mietstufe rent caps here or
+# in code. They change yearly and MUST be transcribed from the dated official
+# Wohngeldrechner at build time and cited via the `source` block above.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CALCULATION FIGURES — §§ 12, 14, 19 WoGG (effective 2026-01-01)
+# ─────────────────────────────────────────────────────────────────────────────
+# Every `null` below is a TODO.  Fill from the official sources listed here,
+# then set figures_loaded: true and flip FIGURES_LOADED=True in the test file.
+#
+# Official sources:
+#   § 12 WoGG rent ceilings:    https://www.gesetze-im-internet.de/wogg/__12.html
+#   § 14 WoGG income dedns:     https://www.gesetze-im-internet.de/wogg/__14.html
+#   § 19 WoGG formula + coeff:  https://www.gesetze-im-internet.de/wogg/__19.html
+#   WoGV Anlage (Mietstufen):   https://www.gesetze-im-internet.de/wogv/
+#   BMWSB Wohngeldrechner:      https://www.bmwsb.bund.de/Webs/BMWSB/DE/themen/stadt-wohnen/wohngeld/wohngeld-node.html
+#
+# Effective year: 2026
+# ─────────────────────────────────────────────────────────────────────────────
+
+figures_loaded: true   # sizes 1–4 verified end-to-end; 5-12 transcribed but unverified
+
+# Sizes verified end-to-end against the official BMWSB Wohngeldrechner.
+# Add a size here ONLY after its golden spot-check tests pass against the calculator.
+# Sizes 5-12 remain UNAVAILABLE — transcribed from statute but not yet spot-checked.
+verified_household_sizes: [1, 2, 3, 4]   # G1–G4 matched the official Wohngeldrechner on 2026-10-14
+
+# § 12 WoGG Anlage 1 — Base rent ceiling (Bruttokaltmiete) in EUR.
+# Keyed by Mietstufe (I–VII) × household size (1–5).
+# For household sizes above 5, add `each_additional_eur` per additional member.
+# Mietstufe is assigned per municipality (Gemeinde/Kreis) by the WoGV Anlage;
+# it CANNOT be derived from Bundesland alone — see CONTRACT.md.
+#
+# M formula (§ 12 WoGG):
+#   base  = rent_ceilings_eur[mietstufe][size]
+#   klima = klimakomponente_eur[size]
+#   heiz  = heizkostenkomponente_eur[size]
+#   M     = min(cold_rent, base + klima) + heiz
+#   (cold_rent = UserSituation.monthly_cold_rent = Bruttokaltmiete entered by user)
+rent_ceilings_eur:
+  # Source: § 12 WoGG Anlage 1, effective 2026-01-01 (Wohngeldgesetz).
+  I:   {1: 361, 2: 437, 3: 521, 4: 608,  5: 694,  each_additional_eur: 82}
+  II:  {1: 408, 2: 493, 3: 587, 4: 686,  5: 782,  each_additional_eur: 94}
+  III: {1: 456, 2: 551, 3: 657, 4: 766,  5: 875,  each_additional_eur: 106}
+  IV:  {1: 511, 2: 619, 3: 737, 4: 858,  5: 982,  each_additional_eur: 119}
+  V:   {1: 562, 2: 680, 3: 809, 4: 946,  5: 1080, each_additional_eur: 129}
+  VI:  {1: 615, 2: 745, 3: 887, 4: 1035, 5: 1183, each_additional_eur: 149}
+  VII: {1: 677, 2: 820, 3: 975, 4: 1139, 5: 1302, each_additional_eur: 163}
+
+# § 12 Abs. 6 WoGG — Heating cost component (Heizkostenkomponente) in EUR.
+# Always added to M regardless of whether cold_rent exceeds the base ceiling.
+# Keyed by household size (1–5); for sizes above 5, add 27.60 per extra member.
+heizkostenkomponente_eur:
+  # Source: § 12 Abs. 6 WoGG (CO₂ + dauerhafte Heizkostenkomponente), effective 2026-01-01.
+  1: 110.40
+  2: 142.60
+  3: 170.20
+  4: 197.80
+  5: 225.40
+  each_additional_eur: 27.60
+
+# § 12 Abs. 7 WoGG — Climate component (Klimakomponente) in EUR.
+# Added to the base ceiling before comparing against cold_rent (not always added).
+# Keyed by household size (1–5); for sizes above 5, add 4.80 per extra member.
+klimakomponente_eur:
+  # Source: § 12 Abs. 7 WoGG (Klimakomponente), effective 2026-01-01.
+  1: 19.20
+  2: 24.80
+  3: 29.60
+  4: 34.40
+  5: 39.20
+  each_additional_eur: 4.80
+
+# § 19 WoGG — Calculation coefficients (Anlage 2 to WoGG).
+# Formula:  z1=a+b×M+c×Y; z2=z1×Y; z3=M−z2; z4=1.15×z3; W=round_half_up(z4) ≥ 0
+#   M = eligible rent (see rent_ceilings_eur block above)
+#   Y = § 16 WoGG adjusted income, floored at anlage3_y_floors minimum
+#   a, b, c = coefficients keyed by number of household members
+# For household sizes beyond 12, the row for 12 is reused.
+coefficients:
+  # Source: § 19 WoGG Anlage 2, effective 2026-01-01.
+  # Sizes 1–4 verified end-to-end against BMWSB Wohngeldrechner (2026-10-14).
+  # Sizes 5–12 transcribed from statute; run spot-checks before trusting live results.
+  1:  {a: 0.04,  b: 0.0004797, c: 0.0000408}
+  2:  {a: 0.03,  b: 0.0003571, c: 0.0000304}
+  3:  {a: 0.02,  b: 0.0002917, c: 0.0000245}
+  4:  {a: 0.01,  b: 0.0002163, c: 0.0000176}
+  5:  {a: 0.00,  b: 0.0001907, c: 0.0000172}
+  6:  {a: -0.01, b: 0.0001722, c: 0.0000166}
+  7:  {a: -0.02, b: 0.0001592, c: 0.0000165}
+  8:  {a: -0.03, b: 0.0001583, c: 0.0000165}
+  9:  {a: -0.04, b: 0.0001376, c: 0.0000166}
+  10: {a: -0.06, b: 0.0001249, c: 0.0000166}
+  11: {a: -0.09, b: 0.0001141, c: 0.0000196}
+  12: {a: -0.12, b: 0.0001107, c: 0.0000221}
+
+# Anlage 3 Nr. 1 WoGG — Minimum M per household size (verified 2026-10-14).
+# NOT applied in calculator.py: M always includes the § 12 Abs. 6 heating
+# component, which exceeds these minimums for every size 1–12. A test
+# (test_heating_component_keeps_m_above_anlage3_floor) fails if a future figure
+# change breaks that — then the floor must be implemented.
+anlage3_m_floors:
+  1: 54
+  2: 67
+  3: 79
+  4: 92
+  5: 103
+  6: 103
+  7: 115
+  8: 128
+  9: 140
+  10: 152
+  11: 187
+  12: 298
+
+# Anlage 3 WoGG — Minimum monthly income (Y-floor) per household size.
+# If the § 16 WoGG adjusted total income Y falls below this floor for the
+# household size, the floor value is used in the § 19 formula instead.
+# Format: household_size → floor_eur (monthly EUR). Size > 12 → use row 12.
+anlage3_y_floors:
+  # Source: WoGG Anlage 3, effective 2026-01-01.
+  # Sizes 1–4 verified via golden tests. Others transcribed from statute.
+  1:  396
+  2:  679
+  3:  906
+  4:  1132
+  5:  1358
+  6:  1585
+  7:  1811
+  8:  2037
+  9:  2264
+  10: 2490
+  11: 2717
+  12: 2943
+
+# PLZ → Mietstufe assignment (primary location key).
+# Source: WoGV Anlage (Wohngeldverordnung), valid 2026.
+#   https://www.gesetze-im-internet.de/wogv/anlage.html
+#
+# Format: postal_code (5-digit string) → list of {municipality, mietstufe} candidates.
+#   - One candidate per PLZ: resolve directly.
+#   - Multiple candidates with the SAME Mietstufe: resolve directly (no ambiguity).
+#   - Multiple candidates with DIFFERENT Mietstufen: require UserSituation.municipality
+#     as a tiebreaker; raise AmbiguousMietstufe if it is absent or does not match.
+#
+# DO NOT guess or invent any entry. Leave as {} until you transcribe the complete
+# WoGV Anlage list. An absent PLZ surfaces as CANNOT_DETERMINE("postal_code").
+#
+# TODO(official): populate from the complete WoGV Anlage PLZ list.
+# Example shape (do not use these values — they are illustrative only):
+#   "80331": [{municipality: "München", mietstufe: "VII"}]
+#   "10115": [{municipality: "Berlin Mitte", mietstufe: "IV"}]
+postal_code_mietstufe:
+  # Source: WoGV Anlage zu § 1 Abs. 3 (2023 base, 2025 update, carried forward 2026).
+  # Würzburg Stadt (AGS 09663000) — Mietstufe IV: verified 2026-10-14 against
+  # https://www.gesetze-im-internet.de/wogv/anlage.html ("Würzburg, Stadt | IV").
+  # PLZ list (97070–97084, even numbers only) is from postal data, NOT from the WoGV,
+  # which lists municipalities, not postcodes. See docs/WOHNGELD_FIGURES.md.
+  # DO NOT add other PLZs without transcribing from the WoGV Anlage for that Gemeinde.
+  "97070": [{municipality: "Würzburg", ags: "09663000", mietstufe: "IV", source: "WoGV Anlage §1 Abs.3", effective: "2025-01-01"}]
+  "97072": [{municipality: "Würzburg", ags: "09663000", mietstufe: "IV", source: "WoGV Anlage §1 Abs.3", effective: "2025-01-01"}]
+  "97074": [{municipality: "Würzburg", ags: "09663000", mietstufe: "IV", source: "WoGV Anlage §1 Abs.3", effective: "2025-01-01"}]
+  "97076": [{municipality: "Würzburg", ags: "09663000", mietstufe: "IV", source: "WoGV Anlage §1 Abs.3", effective: "2025-01-01"}]
+  "97078": [{municipality: "Würzburg", ags: "09663000", mietstufe: "IV", source: "WoGV Anlage §1 Abs.3", effective: "2025-01-01"}]
+  "97080": [{municipality: "Würzburg", ags: "09663000", mietstufe: "IV", source: "WoGV Anlage §1 Abs.3", effective: "2025-01-01"}]
+  "97082": [{municipality: "Würzburg", ags: "09663000", mietstufe: "IV", source: "WoGV Anlage §1 Abs.3", effective: "2025-01-01"}]
+  "97084": [{municipality: "Würzburg", ags: "09663000", mietstufe: "IV", source: "WoGV Anlage §1 Abs.3", effective: "2025-01-01"}]

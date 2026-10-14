@@ -1,0 +1,19 @@
+{
+  "citation_id": "§ 19 WoGG",
+  "title": "§ 19 WoGG — Wohngeldbetrag",
+  "source_url": "https://www.gesetze-im-internet.de/wogg/__19.html",
+  "effective_date": "2023-01-01",
+  "retrieved_date": "2026-07-01",
+  "chunks": [
+    {
+      "chunk_id": "19-abs-1",
+      "heading": "§ 19 Abs. 1 WoGG — Berechnungsformel (W = 1,15 × (M − (a + b·M + c·Y) × Y), min 0)",
+      "text": ""
+    },
+    {
+      "chunk_id": "19-abs-2",
+      "heading": "§ 19 Abs. 2 WoGG — Rundungsregel (auf volle Euro, kaufmännisch)",
+      "text": ""
+    }
+  ]
+}
