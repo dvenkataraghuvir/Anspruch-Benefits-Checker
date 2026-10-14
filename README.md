@@ -18,6 +18,7 @@ First benefit module: **Wohngeld**.
 | Rules engine + Wohngeld module | ✅ Working. All figures checked against the WoGG on 2026-10-14; household sizes 1–4 verified against the official BMWSB Wohngeldrechner |
 | Eligibility API (FastAPI) | ✅ `POST /api/v1/eligibility/assess` |
 | Website (React, DE/EN) | ✅ Landing, eligibility check, how it works, privacy |
+| Azure deployment | ✅ Bicep + GitHub Actions (OIDC); see `docs/DEPLOYMENT.md` |
 | Grounding corpus (`packages/grounding`) | 🟡 Statute sections registered; texts not yet filled |
 | Atlas RAG, Relay (LangGraph), Lens guards | ⬜ Designed in `docs/ARCHITECTURE.md`, not yet built |
 
@@ -31,6 +32,7 @@ See `docs/WOHNGELD_FIGURES.md` for the full audit trail and open items.
 ```
 docs/                      ARCHITECTURE.md (design + security) · CONTRACT.md (data contract)
                            WOHNGELD_FIGURES.md (every figure, its source, verification status)
+                           DEPLOYMENT.md (Azure setup) · ROADMAP.md (milestones and dates)
 packages/
   core/anspruch_core/      types.py — THE contract (source of truth)
   rules_engine/            deterministic engine + Wohngeld module (tested)
@@ -38,6 +40,8 @@ packages/
 apps/
   frontend/                Vite + React + TS website, DE/EN (no secrets)
   backend/                 FastAPI — POST /api/v1/eligibility/assess
+infra/                     Bicep: Container Apps, Static Web Apps, App Insights, budget
+.github/workflows/ci.yml   tests, backend image, deploy to Azure
 conftest.py                makes the packages importable for pytest
 ```
 
