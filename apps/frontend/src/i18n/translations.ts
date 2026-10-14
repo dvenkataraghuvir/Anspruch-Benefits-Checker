@@ -100,7 +100,7 @@ const en = {
       },
       {
         q: 'Does an AI calculate my benefit?',
-        a: 'No. A tested rules engine makes every eligibility decision and calculates every amount. Language models only help explain results, and a check blocks any explanation whose numbers differ from the engine\'s.',
+        a: 'No. A tested rules engine makes every eligibility decision and calculates every amount. We plan to add AI that explains results in plain language. It will never calculate anything, and a check will block any explanation whose numbers differ from the engine\'s.',
       },
     ],
 
@@ -124,8 +124,8 @@ const en = {
         body: 'Each benefit is a versioned rule module copied from dated official sources. The engine uses the version that applies on the day of your check. No AI touches the calculation.',
       },
       {
-        title: 'Explanations with sources',
-        body: 'AI only explains a result that has already been calculated, in plain language and using the sources attached to it. If an explanation contains a figure the engine didn\'t produce, it gets blocked.',
+        title: 'Explanations with sources (planned)',
+        body: 'Next, AI will explain results that have already been calculated, in plain language and using the sources attached to them. If an explanation contains a figure the engine didn\'t produce, it will be blocked.',
       },
       {
         title: 'You stay in control',
@@ -378,7 +378,7 @@ const de: Messages = {
       },
       {
         q: 'Berechnet eine KI meine Leistung?',
-        a: 'Nein. Alle Entscheidungen und Beträge kommen aus einem getesteten Regelwerk. Sprachmodelle helfen nur beim Erklären, und eine Prüfung blockiert jede Erklärung, deren Zahlen vom Regelwerk abweichen.',
+        a: 'Nein. Alle Entscheidungen und Beträge kommen aus einem getesteten Regelwerk. Geplant ist eine KI, die Ergebnisse in einfacher Sprache erklärt. Sie wird nie selbst rechnen, und eine Prüfung wird jede Erklärung blockieren, deren Zahlen vom Regelwerk abweichen.',
       },
     ],
 
@@ -402,8 +402,8 @@ const de: Messages = {
         body: 'Jede Leistung ist ein versioniertes Regelmodul, übertragen aus datierten amtlichen Quellen. Das Regelwerk nutzt die Fassung, die am Tag Ihrer Prüfung gilt. An der Berechnung ist keine KI beteiligt.',
       },
       {
-        title: 'Erklärungen mit Quellen',
-        body: 'KI erklärt nur ein Ergebnis, das bereits berechnet ist, in einfacher Sprache und mit den beigefügten Quellen. Enthält eine Erklärung eine Zahl, die nicht vom Regelwerk stammt, wird sie blockiert.',
+        title: 'Erklärungen mit Quellen (geplant)',
+        body: 'Als Nächstes erklärt eine KI bereits berechnete Ergebnisse in einfacher Sprache und mit den beigefügten Quellen. Enthält eine Erklärung eine Zahl, die nicht vom Regelwerk stammt, wird sie blockiert.',
       },
       {
         title: 'Sie behalten die Kontrolle',
