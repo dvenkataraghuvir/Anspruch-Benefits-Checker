@@ -16,6 +16,10 @@ const en = {
       'Anspruch checks whether you qualify for German government benefits such as Wohngeld. Every result is calculated by fixed rules and linked to the official source. If something can\'t be checked, Anspruch says so.',
   },
 
+  beta: {
+    text: 'Wohngeld amounts are currently calculated for Würzburg only. Other regions follow soon.',
+  },
+
   nav: {
     brandSub: 'Benefit finder',
     home: 'Home',
@@ -292,6 +296,10 @@ const de: Messages = {
     notFound: 'Seite nicht gefunden | Anspruch',
     description:
       'Anspruch prüft, ob Ihnen staatliche Leistungen wie Wohngeld zustehen. Jedes Ergebnis wird nach festen Regeln berechnet und mit der amtlichen Quelle verknüpft. Was sich nicht prüfen lässt, sagt Anspruch offen.',
+  },
+
+  beta: {
+    text: 'Wohngeld-Beträge werden derzeit nur für Würzburg berechnet. Weitere Regionen folgen bald.',
   },
 
   nav: {

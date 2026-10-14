@@ -35,6 +35,17 @@ a { color: var(--green); }
 .container--narrow { max-width: 720px; }
 
 /* ── Header ─────────────────────────────────────────────────────── */
+.beta-banner {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: var(--ochre-soft); color: var(--ink);
+  font-size: 13px; padding: 8px 16px; text-align: center;
+}
+.beta-pill {
+  background: var(--ochre); color: #fff; font-weight: 700; font-size: 11px;
+  letter-spacing: .04em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 999px; flex-shrink: 0;
+}
+
 .site-header {
   position: sticky; top: 0; z-index: 10;
   background: var(--paper);

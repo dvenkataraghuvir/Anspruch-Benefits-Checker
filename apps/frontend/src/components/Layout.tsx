@@ -38,6 +38,11 @@ export function Layout() {
 
   return (
     <div className="site">
+      <div className="beta-banner" role="note">
+        <span className="beta-pill">Beta</span>
+        <span>{t.beta.text}</span>
+      </div>
+
       <header className="site-header">
         <div className="container site-header-inner">
           <Link to="/" className="brand">
