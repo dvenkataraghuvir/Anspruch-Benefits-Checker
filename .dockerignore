@@ -1,0 +1,9 @@
+# Build context is the repo root; only packages/ and apps/backend/ are copied.
+**/.env
+**/node_modules
+**/dist
+**/__pycache__
+**/*.egg-info
+**/.pytest_cache
+.git
+apps/frontend
