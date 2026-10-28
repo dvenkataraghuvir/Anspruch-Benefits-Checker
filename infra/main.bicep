@@ -7,11 +7,8 @@
 // See docs/DEPLOYMENT.md for the full first-time setup.
 targetScope = 'subscription'
 
-@description('Region for the backend, monitoring and identity. EU region per the architecture doc.')
+@description('Region for all resources. The Azure for Students policy allows germanywestcentral, austriaeast, spaincentral, denmarkeast and norwayeast.')
 param location string = 'germanywestcentral'
-
-@description('Static Web Apps is only offered in a few regions; westeurope is the EU one.')
-param staticWebAppLocation string = 'westeurope'
 
 param resourceGroupName string = 'rg-anspruch'
 
@@ -44,7 +41,6 @@ module app 'resources.bicep' = {
   scope: rg
   params: {
     location: location
-    staticWebAppLocation: staticWebAppLocation
     githubRepo: githubRepo
     containerImage: containerImage
   }
@@ -81,6 +77,6 @@ output tenantId string = tenant().tenantId
 output subscriptionId string = subscription().subscriptionId
 output deployClientId string = app.outputs.deployClientId
 output containerAppName string = app.outputs.containerAppName
-output staticWebAppName string = app.outputs.staticWebAppName
+output websiteStorageAccount string = app.outputs.websiteStorageAccount
 output websiteUrl string = app.outputs.websiteUrl
 output backendUrl string = app.outputs.backendUrl

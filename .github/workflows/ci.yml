@@ -106,19 +106,12 @@ jobs:
           npm ci
           VITE_API_BASE_URL="$API_URL" npm run build
 
-      - name: Get website deploy token
-        id: swa
+      - name: Upload website
         run: |
-          token=$(az staticwebapp secrets list -g "$RG" -n swa-anspruch --query properties.apiKey -o tsv)
-          echo "::add-mask::$token"
-          echo "token=$token" >> "$GITHUB_OUTPUT"
-      - uses: Azure/static-web-apps-deploy@v1
-        with:
-          azure_static_web_apps_api_token: ${{ steps.swa.outputs.token }}
-          action: upload
-          app_location: apps/frontend/dist
-          skip_app_build: true
-          skip_api_build: true
+          account=$(az storage account list -g "$RG" --query "[?starts_with(name, 'stanspruch')].name | [0]" -o tsv)
+          # index.html doubles as the 404 page so client-side routes like /check load.
+          az storage blob service-properties update --auth-mode key --account-name "$account"             --static-website --index-document index.html --404-document index.html -o none
+          az storage blob upload-batch --auth-mode key --account-name "$account"             -s apps/frontend/dist -d '$web' --overwrite -o none
 
       - name: Smoke test
         run: |

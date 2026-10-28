@@ -2,14 +2,20 @@
 
 | Part | Azure service | Notes |
 |---|---|---|
-| Website | Static Web Apps (Free) | `swa-anspruch`, West Europe |
-| Backend | Container Apps (consumption) | `ca-anspruch-api`, scales to zero, max 1 replica |
+| Website | Storage account, static website | `stanspruch…`, Germany West Central |
+| Backend | Container Apps (consumption) | `ca-anspruch-api`, Germany West Central, scales to zero, max 1 replica |
 | Backend image | GitHub Container Registry | `ghcr.io/dvenkataraghuvir/anspruch-backend` |
 | Monitoring | Application Insights + Log Analytics | 0.1 GB/day ingestion cap, IPs masked |
 | Cost control | Monthly budget | alerts at 80% actual and 100% forecast |
 | CI login | User-assigned managed identity + OIDC | trusts only `main` of this repo; no secrets in GitHub |
 
 Everything is defined in `infra/main.bicep` and `infra/resources.bicep`.
+
+The Azure for Students policy only allows `germanywestcentral`, `austriaeast`,
+`spaincentral`, `denmarkeast` and `norwayeast`. Static Web Apps is not offered in
+any of them, so the website is a Storage static website. Deep links such as
+`/check` are served through the 404 document (`index.html`), so they work in the
+browser but return HTTP 404.
 After the one-time setup below, every push to `main` runs tests, builds the
 backend image, updates the Container App and uploads the website.
 
@@ -39,7 +45,7 @@ The `Name` column should say *Azure for Students*. If not, run
 az provider register --wait --namespace Microsoft.App
 az provider register --wait --namespace Microsoft.OperationalInsights
 az provider register --wait --namespace Microsoft.Insights
-az provider register --wait --namespace Microsoft.Web
+az provider register --wait --namespace Microsoft.Storage
 az provider register --wait --namespace Microsoft.ManagedIdentity
 az provider register --wait --namespace Microsoft.Consumption
 ```
@@ -57,8 +63,9 @@ az deployment sub create --name anspruch --location germanywestcentral --templat
 
 This takes about 5 minutes. Two errors you might see on a student subscription:
 
-- *RequestDisallowedByPolicy* (region not allowed): add `location=westeurope`
-  after the e-mail parameter.
+- *RequestDisallowedByPolicy* (region not allowed): check the allowed regions with
+  `az policy assignment list --query "[].parameters.listOfAllowedLocations.value"`
+  and add `location=<one of them>` after the e-mail parameter.
 - An error about the budget or the offer type: add `deployBudget=false`. The
   Azure for Students credit has its own hard spending limit, so you are still
   protected.

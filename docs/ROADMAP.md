@@ -11,7 +11,7 @@ Last updated: 2026-10-15.
 - [x] Website copy describes AI explanations as planned until they exist
 - [x] CI: tests and frontend build on every push
 - [x] Beta banner (amounts for Würzburg only)
-- [x] Azure as code: Bicep, Container Apps (scale to zero), Static Web Apps,
+- [x] Azure as code: Bicep, Container Apps (scale to zero), Storage static website,
       Application Insights, budget, deployment from GitHub Actions via OIDC
 - [ ] First deployment (one-time setup in `docs/DEPLOYMENT.md`)
 - [ ] Live site shows no sample results before the first check

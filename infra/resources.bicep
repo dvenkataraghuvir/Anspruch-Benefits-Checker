@@ -1,6 +1,5 @@
 // Resources inside rg-anspruch. Deployed by main.bicep.
 param location string
-param staticWebAppLocation string
 param githubRepo string
 param containerImage string
 
@@ -31,13 +30,24 @@ resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
 }
 
 // ── Website ─────────────────────────────────────────────────────────────────
-resource web 'Microsoft.Web/staticSites@2023-12-01' = {
-  name: 'swa-anspruch'
-  location: staticWebAppLocation
+// Storage static website, because Static Web Apps is not offered in the regions
+// the subscription policy allows. GitHub Actions enables the static website
+// (a data-plane setting ARM cannot set) and uploads the build to $web.
+resource web 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+  name: take('stanspruch${uniqueString(resourceGroup().id)}', 24)
+  location: location
   tags: tags
-  sku: { name: 'Free', tier: 'Free' }
-  properties: {}
+  sku: { name: 'Standard_LRS' }
+  kind: 'StorageV2'
+  properties: {
+    minimumTlsVersion: 'TLS1_2'
+    supportsHttpsTrafficOnly: true
+    allowBlobPublicAccess: false // the static website endpoint is public; containers are not
+  }
 }
+
+// e.g. https://stanspruchxyz.z1.web.core.windows.net (no trailing slash, as a CORS origin)
+var websiteOrigin = take(web.properties.primaryEndpoints.web, length(web.properties.primaryEndpoints.web) - 1)
 
 // ── Backend ─────────────────────────────────────────────────────────────────
 resource env 'Microsoft.App/managedEnvironments@2024-03-01' = {
@@ -81,7 +91,7 @@ resource api 'Microsoft.App/containerApps@2024-03-01' = {
           env: [
             { name: 'ENVIRONMENT', value: 'prod' }
             // Strict CORS allowlist: only the deployed website.
-            { name: 'CORS_ALLOW_ORIGINS', value: '["https://${web.properties.defaultHostname}"]' }
+            { name: 'CORS_ALLOW_ORIGINS', value: '["${websiteOrigin}"]' }
             { name: 'APPLICATIONINSIGHTS_CONNECTION_STRING', secretRef: 'appinsights-connection' }
           ]
         }
@@ -127,6 +137,6 @@ resource deployerAccess 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
 
 output deployClientId string = deployer.properties.clientId
 output containerAppName string = api.name
-output staticWebAppName string = web.name
-output websiteUrl string = 'https://${web.properties.defaultHostname}'
+output websiteStorageAccount string = web.name
+output websiteUrl string = websiteOrigin
 output backendUrl string = 'https://${api.properties.configuration.ingress.fqdn}'

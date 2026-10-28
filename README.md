@@ -40,7 +40,7 @@ packages/
 apps/
   frontend/                Vite + React + TS website, DE/EN (no secrets)
   backend/                 FastAPI — POST /api/v1/eligibility/assess
-infra/                     Bicep: Container Apps, Static Web Apps, App Insights, budget
+infra/                     Bicep: Container Apps, Storage static website, App Insights, budget
 .github/workflows/ci.yml   tests, backend image, deploy to Azure
 conftest.py                makes the packages importable for pytest
 ```
