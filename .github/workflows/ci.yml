@@ -68,6 +68,10 @@ jobs:
           context: .
           file: apps/backend/Dockerfile
           push: true
+          # Plain image manifest: Container Apps rejects the attestation index
+          # that buildx adds by default (reported as "Authentication failed").
+          provenance: false
+          sbom: false
           tags: |
             ${{ env.IMAGE }}:${{ github.sha }}
             ${{ env.IMAGE }}:latest
