@@ -11,6 +11,8 @@ Three subsystems compose into one product: **Atlas** (grounding/RAG),
 **Relay** (orchestration + human approval), **Lens** (eval + guardrails).
 First benefit module: **Wohngeld**.
 
+**Live beta:** https://stanspruchysxfouwee27fi.z1.web.core.windows.net (Wohngeld amounts for Würzburg, PLZ 97070–97084)
+
 ## Status
 
 | Part | State |

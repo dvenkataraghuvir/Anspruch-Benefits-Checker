@@ -13,7 +13,7 @@ Last updated: 2026-10-15.
 - [x] Beta banner (amounts for Würzburg only)
 - [x] Azure as code: Bicep, Container Apps (scale to zero), Storage static website,
       Application Insights, budget, deployment from GitHub Actions via OIDC
-- [ ] First deployment (one-time setup in `docs/DEPLOYMENT.md`)
+- [x] First deployment (live since 2026-10-28)
 - [ ] Live site shows no sample results before the first check
 - [ ] MCP server exposing the eligibility check as a tool, as a second
       Container App, tested from an MCP client
