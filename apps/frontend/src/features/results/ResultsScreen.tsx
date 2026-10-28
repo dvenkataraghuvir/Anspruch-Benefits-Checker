@@ -7,7 +7,6 @@ export function ResultsScreen({ results }: { results: EligibilityResult[] }) {
   return (
     <section className="results">
       <h2>{t.results.title}</h2>
-      <p className="muted">{t.results.subtitle}</p>
       <div className="cards">
         {results.map((r) => (
           <ResultCard key={`${r.program_id}-${r.program_version}`} result={r} />

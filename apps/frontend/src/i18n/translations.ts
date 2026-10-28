@@ -16,6 +16,14 @@ const en = {
       'Anspruch checks whether you qualify for German government benefits such as Wohngeld. Every result is calculated by fixed rules and linked to the official source. If something can\'t be checked, Anspruch says so.',
   },
 
+  programs: {
+    wohngeld: 'Wohngeld (housing allowance)',
+    wbs: 'Wohnberechtigungsschein (WBS)',
+    kinderzuschlag: 'Kinderzuschlag',
+    buergergeld: 'Bürgergeld',
+    bafoeg: 'BAföG',
+  } as Record<string, string>,
+
   beta: {
     text: 'Wohngeld amounts are currently calculated for Würzburg only. Other regions follow soon.',
   },
@@ -173,7 +181,7 @@ const en = {
   privacy: {
     title: 'Privacy',
     lead:
-      'Anspruch handles income, rent and household data, so it collects as little as it can. This page explains in plain language what happens to that data.',
+      'Anspruch handles income, rent and household data, so it collects as little as it can.',
     sections: [
       {
         title: 'What we process',
@@ -193,12 +201,12 @@ const en = {
       },
     ],
     legalNote:
-      'Before the public launch, a full Datenschutzerklärung and Impressum will be added, as German law requires.',
+      'A full Datenschutzerklärung and Impressum will be added before the public launch.',
   },
 
   check: {
     title: 'Eligibility check',
-    lead: 'A few questions about your household. Sensitive answers are not stored.',
+    lead: 'A few questions about your household.',
     sampleNote: 'These are sample results. Connect the backend to see real ones.',
     backendDown: 'The backend isn\'t reachable yet, so you\'re still seeing sample results.',
   },
@@ -215,7 +223,6 @@ const en = {
     postalCode: 'Postal code (PLZ)',
     bundesland: 'Federal state',
     municipality: 'Municipality',
-    municipalityHint: '(only if the app asks for it)',
     optional: 'optional',
     age: 'Age',
     householdSize: 'People in household',
@@ -223,9 +230,9 @@ const en = {
     coldRent: 'Cold rent (Bruttokaltmiete) €/month',
     coldRentPlaceholder: 'e.g. 750',
     coldRentHint:
-      'Enter the cold rent without heating. The app adds the heating component from § 12 WoGG itself.',
+      'Rent including service charges, without heating.',
     membersTitle: 'Monthly gross income per person',
-    membersHint: 'Tick every box that applies. Each one is a 10% deduction under § 16 WoGG.',
+    membersHint: 'Tick every box that applies.',
     person: 'Person',
     grossPlaceholder: 'Gross in €',
     werbungskosten: 'Work-related expenses (Werbungskosten) €/month',
@@ -236,7 +243,7 @@ const en = {
     checkPension: 'Statutory pension insurance',
     assets: 'Total household assets €',
     assetsPlaceholder: '0 or leave blank',
-    assetsHint: 'Needed for § 21 WoGG. Leave it blank if you have no significant savings or property.',
+    assetsHint: 'Leave blank if you have no significant savings or property.',
     coveringBenefit: 'Do you receive a benefit that already covers housing costs?',
     coveringBenefitHint:
       'Examples: Bürgergeld (SGB II), Sozialhilfe / Grundsicherung (SGB XII), Asylbewerberleistungen',
@@ -254,7 +261,6 @@ const en = {
 
   results: {
     title: 'What you may be entitled to',
-    subtitle: 'Each card explains the result and cites the rule it is based on.',
     states: {
       eligible: 'Likely eligible',
       eligible_no_amount: 'Likely eligible',
@@ -263,19 +269,17 @@ const en = {
       unavailable: 'Temporarily unavailable',
     },
     perMonth: '/ month',
-    basedOn: 'Based on',
     certificate: 'A certificate, not a cash amount',
     stillNeeded: 'Still needed:',
     addDetail: '+ Add detail',
     plzNotCovered:
       'We don\'t cover this postal code yet. We add regions once we have verified them. Until then, your local Wohngeldbehörde can help.',
-    unavailableDefault: 'Temporarily unavailable. This isn\'t caused by anything you did.',
+    unavailableDefault: 'This isn\'t caused by anything you did. Please try again later.',
     retry: 'Try again',
     officialSource: 'Official source →',
     cardDisclaimer:
       'This is an estimate, not legal advice. Your local Wohngeldbehörde makes the binding decision.',
     findOffice: 'Find your Wohngeldstelle →',
-    pageDisclaimer: 'General information, not legal or tax advice.',
   },
 
   notFound: {
@@ -296,6 +300,14 @@ const de: Messages = {
     notFound: 'Seite nicht gefunden | Anspruch',
     description:
       'Anspruch prüft, ob Ihnen staatliche Leistungen wie Wohngeld zustehen. Jedes Ergebnis wird nach festen Regeln berechnet und mit der amtlichen Quelle verknüpft. Was sich nicht prüfen lässt, sagt Anspruch offen.',
+  },
+
+  programs: {
+    wohngeld: 'Wohngeld',
+    wbs: 'Wohnberechtigungsschein (WBS)',
+    kinderzuschlag: 'Kinderzuschlag',
+    buergergeld: 'Bürgergeld',
+    bafoeg: 'BAföG',
   },
 
   beta: {
@@ -455,7 +467,7 @@ const de: Messages = {
   privacy: {
     title: 'Datenschutz',
     lead:
-      'Anspruch verarbeitet Einkommen, Miete und Haushaltsdaten und erhebt deshalb so wenig wie möglich. Hier steht in einfachen Worten, was mit diesen Daten passiert.',
+      'Anspruch verarbeitet Einkommen, Miete und Haushaltsdaten und erhebt deshalb so wenig wie möglich.',
     sections: [
       {
         title: 'Was wir verarbeiten',
@@ -475,12 +487,12 @@ const de: Messages = {
       },
     ],
     legalNote:
-      'Vor dem öffentlichen Start kommen eine vollständige Datenschutzerklärung und ein Impressum hinzu, wie es das deutsche Recht verlangt.',
+      'Vor dem öffentlichen Start kommen eine vollständige Datenschutzerklärung und ein Impressum hinzu.',
   },
 
   check: {
     title: 'Anspruchs-Check',
-    lead: 'Ein paar Fragen zu Ihrem Haushalt. Sensible Angaben werden nicht gespeichert.',
+    lead: 'Ein paar Fragen zu Ihrem Haushalt.',
     sampleNote: 'Das sind Beispielergebnisse. Verbinden Sie das Backend, um echte zu sehen.',
     backendDown: 'Das Backend ist noch nicht erreichbar, deshalb sehen Sie weiter Beispielergebnisse.',
   },
@@ -497,7 +509,6 @@ const de: Messages = {
     postalCode: 'Postleitzahl (PLZ)',
     bundesland: 'Bundesland',
     municipality: 'Gemeinde',
-    municipalityHint: '(nur, wenn die App danach fragt)',
     optional: 'optional',
     age: 'Alter',
     householdSize: 'Personen im Haushalt',
@@ -505,9 +516,9 @@ const de: Messages = {
     coldRent: 'Kaltmiete (Bruttokaltmiete) €/Monat',
     coldRentPlaceholder: 'z. B. 750',
     coldRentHint:
-      'Nur die Kaltmiete ohne Heizkosten angeben. Die Heizkomponente nach § 12 WoGG rechnet die App selbst dazu.',
+      'Miete mit Nebenkosten, ohne Heizkosten.',
     membersTitle: 'Monatliches Bruttoeinkommen je Person',
-    membersHint: 'Alles Zutreffende ankreuzen. Jedes Kreuz ist ein Abzug von 10 % nach § 16 WoGG.',
+    membersHint: 'Alles Zutreffende ankreuzen.',
     person: 'Person',
     grossPlaceholder: 'Brutto in €',
     werbungskosten: 'Werbungskosten €/Monat',
@@ -518,7 +529,7 @@ const de: Messages = {
     checkPension: 'Gesetzliche Rentenversicherung',
     assets: 'Gesamtvermögen des Haushalts €',
     assetsPlaceholder: '0 oder freilassen',
-    assetsHint: 'Wichtig für § 21 WoGG. Leer lassen, wenn Sie kein nennenswertes Erspartes oder Eigentum haben.',
+    assetsHint: 'Leer lassen, wenn Sie kein nennenswertes Erspartes oder Eigentum haben.',
     coveringBenefit: 'Erhalten Sie eine Leistung, die die Wohnkosten bereits abdeckt?',
     coveringBenefitHint:
       'Beispiele: Bürgergeld (SGB II), Sozialhilfe / Grundsicherung (SGB XII), Asylbewerberleistungen',
@@ -536,7 +547,6 @@ const de: Messages = {
 
   results: {
     title: 'Was Ihnen zustehen könnte',
-    subtitle: 'Jede Karte erklärt das Ergebnis und nennt die Regel, auf der es beruht.',
     states: {
       eligible: 'Wahrscheinlich berechtigt',
       eligible_no_amount: 'Wahrscheinlich berechtigt',
@@ -545,19 +555,17 @@ const de: Messages = {
       unavailable: 'Vorübergehend nicht verfügbar',
     },
     perMonth: '/ Monat',
-    basedOn: 'Grundlage:',
     certificate: 'Ein Nachweis, kein Geldbetrag',
     stillNeeded: 'Noch benötigt:',
     addDetail: '+ Angabe ergänzen',
     plzNotCovered:
       'Diese Postleitzahl ist noch nicht abgedeckt. Wir nehmen Regionen auf, sobald sie geprüft sind. Bis dahin hilft Ihre Wohngeldbehörde weiter.',
-    unavailableDefault: 'Vorübergehend nicht verfügbar. Das liegt nicht an Ihnen.',
+    unavailableDefault: 'Das liegt nicht an Ihnen. Bitte versuchen Sie es später erneut.',
     retry: 'Erneut versuchen',
     officialSource: 'Amtliche Quelle →',
     cardDisclaimer:
       'Dies ist eine Einschätzung, keine Rechtsberatung. Verbindlich entscheidet Ihre Wohngeldbehörde.',
     findOffice: 'Wohngeldstelle finden →',
-    pageDisclaimer: 'Allgemeine Informationen, keine Rechts- oder Steuerberatung.',
   },
 
   notFound: {

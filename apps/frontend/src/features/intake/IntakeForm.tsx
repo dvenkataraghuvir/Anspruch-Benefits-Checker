@@ -151,7 +151,6 @@ export function IntakeForm({ onSubmit }: { onSubmit: (s: UserSituation) => void 
       <label className="field">
         <span>
           {t.intake.municipality}{' '}
-          <span className="hint">{t.intake.municipalityHint}</span>
         </span>
         <input
           value={municipality}

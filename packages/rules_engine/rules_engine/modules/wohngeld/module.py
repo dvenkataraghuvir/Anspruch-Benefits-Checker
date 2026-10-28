@@ -192,9 +192,7 @@ class WohngeldModule:
             state=ResultState.ELIGIBLE,
             headline="Likely eligible",
             reason=(
-                "Based on your household size, income, and rent. "
-                "This is an estimate. Your local Wohngeldbehörde makes the "
-                "official decision."
+                "Based on your household size, income and rent."
             ),
             estimated_amount=amount,
             notes=notes,

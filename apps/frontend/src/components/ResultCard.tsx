@@ -36,7 +36,7 @@ export function ResultCard({
   return (
     <article className={`card ${tone}`}>
       <header className="card-head">
-        <h3 className="card-title">{result.headline || result.program_id}</h3>
+        <h3 className="card-title">{t.programs[result.program_id] ?? result.program_id}</h3>
         <span className="pill">{label}</span>
       </header>
 
@@ -48,7 +48,6 @@ export function ResultCard({
           <p className="card-amount">
             {formatMoney(result.estimated_amount)} <span>{t.results.perMonth}</span>
           </p>
-          {legal && <p className="card-legal">{t.results.basedOn} {legal}</p>}
         </>
       )}
 

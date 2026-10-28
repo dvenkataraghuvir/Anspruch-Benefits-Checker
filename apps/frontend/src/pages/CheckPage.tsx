@@ -33,7 +33,6 @@ export function CheckPage() {
       <IntakeForm onSubmit={handleSubmit} />
       {note && <p className="note">{note === 'sample' ? t.check.sampleNote : t.check.backendDown}</p>}
       <ResultsScreen results={results} />
-      <p className="disclaimer">{t.results.pageDisclaimer}</p>
     </div>
   );
 }
