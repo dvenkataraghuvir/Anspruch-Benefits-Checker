@@ -16,6 +16,7 @@ The Azure for Students policy only allows `germanywestcentral`, `austriaeast`,
 any of them, so the website is a Storage static website. Deep links such as
 `/check` are served through the 404 document (`index.html`), so they work in the
 browser but return HTTP 404.
+
 After the one-time setup below, every push to `main` runs tests, builds the
 backend image, updates the Container App and uploads the website.
 
