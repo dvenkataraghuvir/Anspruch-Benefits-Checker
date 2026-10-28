@@ -12,8 +12,8 @@ param location string = 'germanywestcentral'
 
 param resourceGroupName string = 'rg-anspruch'
 
-@description('GitHub repository allowed to deploy via OIDC, as owner/name.')
-param githubRepo string = 'dvenkataraghuvir/Anspruch-Benefits-Checker'
+@description('GitHub repository allowed to deploy via OIDC, in the subject format GitHub sends: owner@ownerId/repo@repoId. The numeric IDs stop a recreated repo with the same name from matching. Look them up with: gh api repos/OWNER/REPO --jq "[.owner.id, .id]"')
+param githubRepo string = 'dvenkataraghuvir@216131688/Anspruch-Benefits-Checker@1419784625'
 
 @description('Backend image. The placeholder is only for the very first deployment; GitHub Actions replaces it. On later runs of this template, pass the current image.')
 param containerImage string = 'mcr.microsoft.com/k8se/quickstart:latest'
